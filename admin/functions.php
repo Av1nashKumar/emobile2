@@ -22,8 +22,36 @@ function confirm($result)
 }
 
 
+function insert_categories()
+{
+      
+     global $conn   ;
+    if(isset($_POST['submit']))
+{
 
 
+$cat_name = $_POST['cat_name'];
+
+if($cat_name== "" || empty($cat_name) || strlen($cat_name)<1 ){
+echo "This field should not be Empty";
+}
+
+else{
+
+
+$query = "INSERT INTO category(cat_name) ";
+
+$query .= "VALUES('$cat_name')" ;
+$create_category_query = mysqli_query($conn, $query);
+
+if(!$create_category_query)
+{
+die("Query Failed ".mysqli_error($conn));
+}
+}
+
+}
+}
 
 
 

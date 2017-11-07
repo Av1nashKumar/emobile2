@@ -48,6 +48,10 @@
 						 if(isset($_SESSION["uid"]))
 						 {
 
+                             if($_SESSION['user_role']=='admin')
+                             {
+                             echo "<li><a href='admin/index.php'>Admin</a></li>";    
+                             }
 							 echo "<li class='dropdown '><a href='#'>".$_SESSION['u_name']."</a></li>";
 							 echo "<li><a href='orders.php' >My Orders</a></li>";
 							  echo "<li><a href='logout.php' >Logout</a></li>";

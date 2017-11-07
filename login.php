@@ -5,7 +5,7 @@ if(isset($_POST["submit"]))
 include_once("db.php");
 $email=test_input($_POST["email"]);
 $pwd=test_input($_POST["pwd"]);
-$sql="select cust_id,cust_name,cust_email,cust_pwd from customer where cust_email='".$email."';";
+$sql="select cust_id,cust_name,cust_email,cust_pwd,user_role from customer where cust_email='".$email."';";
 $result=mysqli_query($conn,$sql);
 $rows=mysqli_fetch_assoc($result);
     if(mysqli_num_rows($result)<=0)
@@ -20,8 +20,9 @@ $rows=mysqli_fetch_assoc($result);
           session_start();
           $total=0;
           $items=0;
-        $_SESSION['uid']=$rows["cust_id"];
+          $_SESSION['uid']=$rows["cust_id"];
           $_SESSION['u_name']=$rows["cust_name"];
+          $_SESSION['user_role']=$rows["user_role"];
           include_once("db.php");
           $sql1="SELECT cust_id,sum(pro_price),count(pro_price) FROM cart WHERE cust_id=".$_SESSION['uid']." GROUP BY cust_id ;";
           $result=mysqli_query($conn,$sql1);
