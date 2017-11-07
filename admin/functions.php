@@ -55,6 +55,26 @@ die("Query Failed ".mysqli_error($conn));
 
 
 
+function recordCount($table)
+{
+        global $conn;
+        
+        $query = "SELECT * FROM {$table} ";
+        $rows = mysqli_query($conn, $query);
+        
+$result = mysqli_num_rows($rows);    
+confirm($result);
+return $result;
+}
+
+
+
+
+
+
+
+
+
 
 function findAllCategories()
 {

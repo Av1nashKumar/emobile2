@@ -98,6 +98,21 @@ deleteCategories();
 
 </tbody>
 </table>
+
+<?php //Update and Include QUERY
+
+if(isset($_GET["edit"]))
+{
+    
+$cat_name = $_GET["edit"];
+include "includes/update_categories.php";
+    
+}
+
+?>
+
+
+
 </div>
 
 

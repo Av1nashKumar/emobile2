@@ -1,14 +1,6 @@
 <?php  include "includes/admin_header.php" ?>
 
     <div id="wrapper">
-       
-       <?php
-       
-
-    
-       ?>
-       
-
 
         <!-- Navigation -->
 
@@ -27,7 +19,7 @@
                        
                         <h1 class="page-header">
                             Welcome to Adminstration
-                            <small>Avinash</small>
+                            <small><?php echo $_SESSION['u_name']; ?></small>
                         </h1>
                         
                
@@ -49,8 +41,7 @@
                     <div class="col-xs-9 text-right">
 
                 
-
-                    <div class='huge'> 4 </div>
+                         <div class='huge'> <?php echo $product_counts = recordCount('product'); ?> </div>
                     
 
                         <div>Products</div>
@@ -76,10 +67,10 @@
                     <div class="col-xs-9 text-right">
 
             
-                        <div class='huge'>5</div>
+                        <div class='huge'><?php echo $orders_counts = recordCount('cust_order'); ?></div>
                      
                         
-                      <div>Comments</div>
+                      <div>Orders</div>
                     </div>
                 </div>
             </div>
@@ -103,7 +94,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                     
-                               <div class='huge'>5</div>
+                               <div class='huge'><?php echo $user_counts = recordCount('customer'); ?></div>
                   
                         
                         
@@ -135,7 +126,7 @@
 
                 
                    
-                            <div class='huge'>5</div>
+                            <div class='huge'><?php echo $categories_counts = recordCount('category'); ?></div>
                   
                         
                          <div>Categories</div>
@@ -172,21 +163,15 @@
             <?php
             
      
+            $elememt_text = ['Products', 'Orders', 'Users', 'Categories'];
+            $elememt_count = [$product_counts, $orders_counts, $user_counts, $categories_counts];
             
-            $elememt_text = ['All Products', 'Users', 'Categories', 'Comments', 'Pending Comments'];
-            
-            
-            for( $i = 0; $i < 5 ; $i++ ) {
+            for( $i = 0; $i < 4 ; $i++ ) {
              echo "['{$elememt_text[$i]}'" . ",". " {$elememt_count[$i]}],";   
                 
             }
             
- 
             ?>
-            
-            
-            
-//          ['Post', 1000]
         
         ]);
 
@@ -212,10 +197,7 @@
            
                 
                      
-                               
-                
-                
-                
+                        
                 
                 <!-- /.row -->
 

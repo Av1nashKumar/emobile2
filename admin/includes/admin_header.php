@@ -44,6 +44,7 @@ if($_SESSION['user_role']!="admin")
  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
  
      <script src="js/jquery.js"></script>
+     
 
  
 </head>

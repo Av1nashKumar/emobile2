@@ -1,3 +1,14 @@
+<script>
+    function ajaxfunction(parent)
+    {
+       
+
+      window.location.href='products.php?source=add_product&ucat_id='+parent;
+        
+        
+        
+    }
+</script>
 
 <h1 class="page-header">
 Add Product
@@ -55,42 +66,65 @@ $query =  "INSERT INTO product(pro_name, pro_disc, pro_quantity, pro_img1, pro_i
  
      
    <div class="form-group">
-    <select class ='btn btn-primary' name ="product_category"   id="">
+   
+    <select class ='btn btn-primary' name ="product_category"  onchange="ajaxfunction(this.value)"  id="xyz">
+       <?php  
         
+        if(!isset($_GET['ucat_id']))
+        {
+        ?>
+       <option value="">Select</option>
         
-        <?php
-     global $conn;   
-
+    <?php }
+        $the_cat_id = $_GET['ucat_id'];
+    global $conn;   
     $query= "SELECT * FROM category "; 
-
     $select_categories = mysqli_query($conn,$query);
-    
-    confirm($select_categories);
-        
+
+     
     while($row = mysqli_fetch_assoc($select_categories))
     {
-
     $cat_id = $row["cat_id"];
-    $cat_name = $row["cat_name"];  
+    $cat_name = $row["cat_name"];      
         
         
-       echo "<option value='$cat_id'> {$cat_name}</option>" ;
+             if($cat_id == $the_cat_id){
         
-    }  ?>
+        
+        
+       echo "<option class ='btn btn-primary' selected value='$cat_id'>{$cat_name}</option>" ;
+        
+        }
+        
+        else{
+        
+        
+        
+    echo "<option value='$cat_id'> {$cat_name}</option>" ; }
+    }
+        
+    ?>
         
         
     </select>
     </div>
     
+  
     
+
+   
+   
+   
+       
      <div class="form-group">
-    <select class ='btn btn-primary' name ="product_sub_category"   id="">
+    <select class ='btn btn-primary' name ="product_sub_category"   id="sub">
         
         
         <?php
-     global $conn;   
-
-    $query= "SELECT * FROM sub_cat "; 
+     global $conn;  
+    
+        echo $id=$_GET["ucat_id"];
+    $query= "SELECT * FROM sub_cat WHERE cat_id={$id}"; 
 
     $select_sub_categories = mysqli_query($conn,$query);
     
@@ -110,6 +144,16 @@ $query =  "INSERT INTO product(pro_name, pro_disc, pro_quantity, pro_img1, pro_i
         
     </select>
     </div>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     
 
  
@@ -149,3 +193,10 @@ $query =  "INSERT INTO product(pro_name, pro_disc, pro_quantity, pro_img1, pro_i
     <input type="submit" class="btn btn-primary" name="create_product" value="Publish Product">
     </div>
 </form>
+
+
+
+
+
+
+

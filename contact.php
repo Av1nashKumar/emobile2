@@ -52,7 +52,7 @@ require("header.php");
 						<h4>Address1</h4>
 							<p>Tel:+919872440301</p>
 							<p>Fax:190-4509-494</p>
-							<p>Email:<a href="mailto:prat3185@gamil.com"> prat3185@gmail.com</a></p>
+							<p>Email:<a href="mailto:prat3185@gamil.com"> avinash.7355@gmail.com</a></p>
 						</div>
 
 				</div>

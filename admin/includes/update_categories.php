@@ -51,3 +51,22 @@ die("Query FAILED".mysqli_error($conn));
 <input type="submit" class="btn btn-primary"  name="update_category" value="Update"></div>
 
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
