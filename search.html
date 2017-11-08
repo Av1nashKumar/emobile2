@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#name').on('input', function() {
+                var userText = $(this).val();
+                $("#search").find("option").each(function() {
+                    if ($(this).val() == userText) {
+                       searchProducts(userText);
+                       //ajax_search(userText);
+                    }
+                })
+            })
+
+        });
+        var xmlhttp=new XMLHttpRequest();
+        function ajax_search(str){
+            if(str.length==0) {
+                document.getElementById("search").innerHTML = "";
+                return;
+            }
+            xmlhttp.onreadystatechange=function () {
+                if(this.readyState==4&&this.status==200){
+                    document.getElementById("search").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open('GET','search.php?hint='+str,true);
+            xmlhttp.send();
+        }
+        function searchProducts(str){
+            if(str.length==0) {
+                document.getElementById("search").innerHTML = "No item found";
+                return;
+            }
+            xmlhttp.onreadystatechange=function () {
+                if(this.readyState==4&&this.status==200){
+                    document.getElementById("searchResult").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open('GET','searchResult.php?id='+str,true);
+            xmlhttp.send();
+        }
+        </script>
+</head>
+<body>
+<form>
+    <div class="form-group">
+        <input id="name" list="search" onkeyup="ajax_search(this.value)" class="form-control" >
+        <datalist id="search">
+        </datalist>
+    </div>
+    <div id="searchResult"></div>
+</form>
+</body>
+</html>

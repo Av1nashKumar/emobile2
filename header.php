@@ -15,6 +15,7 @@
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/emobile2/images/ficon.png" rel="icon" type="image/png" />
 <script type="text/javascript" src="js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 </head>
