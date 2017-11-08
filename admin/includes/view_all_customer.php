@@ -1,3 +1,10 @@
+<h1 class="page-header">
+Customers
+</h1>
+
+
+
+
 <?php   
 
 if(isset($_SESSION['user_role']))

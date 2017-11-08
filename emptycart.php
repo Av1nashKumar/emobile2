@@ -1,6 +1,11 @@
 <?php
 session_start();
 require_once("db.php");
+if(!isset($_SESSION['uid']))
+{
+header("Location:index.php");   
+    die();
+}
 $id=$_SESSION['uid'];
 $sql="DELETE FROM cart WHERE cust_id=".$id.";";
 if(mysqli_query($conn,$sql))

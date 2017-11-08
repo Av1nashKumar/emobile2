@@ -28,11 +28,11 @@
 	<div class="header-top" >
 		<div class="container">
 			
-				<form>	
+				<form action="search.php" method="post">	
         <div class="input-group">
-        <input type="text"  class="form-control" placeholder="Search" >
+        <input type="text"  class="form-control" name="search" placeholder="Search" >
         <span class="input-group-btn">
-            <input class="btn btn-primary" name="go" type="submit" value="Go">               
+            <input class="btn btn-primary"  type="submit" value="Go">               
         </span>
         
     </div>

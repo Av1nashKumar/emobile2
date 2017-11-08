@@ -16,9 +16,6 @@
 <div class="col-lg-12">
 
 
-<h1 class="page-header">
-Customers
-</h1>
 
 
 <?php
@@ -41,8 +38,8 @@ switch($source)
 
           
           
-    case "Nice 34": 
-        echo nice;
+    case "view_all_orders": 
+        include "includes/view_all_orders.php";
         break;
           
     case "Nice 34":

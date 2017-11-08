@@ -29,7 +29,7 @@
 </li>
 
 <li>
-<a href="../includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+<a href="../logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
 </li>
 </ul>
 </li>
@@ -67,6 +67,9 @@
         <ul id="demo" class="collapse">
         <li>
         <a href="customer.php">View All users</a>
+        </li>
+         <li>
+        <a href="customer.php?source=view_all_orders">View All Orders</a>
         </li>
         </ul>   
         </li>   

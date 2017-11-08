@@ -8,6 +8,10 @@
 
 <?php
 require("header.php");
+if(!isset($_GET["id"])) 
+   {
+       header("Location: index.php");
+   }
 $id=$_GET["id"];
 $sql="SELECT pro_img1,pro_img2,pro_price,pro_img3,pro_name,pro_disc FROM product WHERE pro_id='".$id."';";
 $result=mysqli_query($conn,$sql);

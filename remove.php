@@ -21,4 +21,5 @@ echo"<script>alert('1 Item Removed From Cart');";
 echo"window.location='cartview.php';</script>";
 }
 
+header("Location:index.php");
 ?>
